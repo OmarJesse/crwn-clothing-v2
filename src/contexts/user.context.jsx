@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
       if (user) createUserDocumentFromAuth(user);
       setCurrentUser(user);
     });
-    return () => unsubscribe();
+    return unsubscribe;
   }, []);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

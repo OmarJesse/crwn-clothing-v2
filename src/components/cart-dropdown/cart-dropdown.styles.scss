@@ -11,6 +11,20 @@
   right: 40px;
   z-index: 5;
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: gray;
+  }
+
   .empty-message {
     font-size: 18px;
     margin: 50px auto;
@@ -20,7 +34,7 @@
     height: 240px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 
   button {

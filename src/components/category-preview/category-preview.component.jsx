@@ -13,9 +13,9 @@ const CategoryPreview = ({ title, products }) => {
         <Title to={title}>{title.toUpperCase()}</Title>
       </h2>
       <Preview>
-        {products.items.slice(0, 4).map((product) => {
-          return <ProductCard key={product.id} product={product} />;
-        })}
+        {products.slice(0, 4).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </Preview>
     </CategoryPreviewContainer>
   );

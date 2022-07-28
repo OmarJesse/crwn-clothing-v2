@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  fetchDirectoriesAsync,
-  setDirectories,
-} from "../../store/directories/directories.action";
+import { fetchDirectoriesStart } from "../../store/directories/directories.action";
 import { useDispatch, useSelector } from "react-redux";
-import { getCollectionsAndDocuments } from "../../utils/firebase/firebase.utils";
 import DirectoryItem from "../directory-item/directory-item.component";
 import LoadingSpinner from "../loading-spinner/loading-spiner.component";
 
@@ -21,13 +17,13 @@ const Directories = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchDirectoriesAsync());
+    console.log(process.env);
+    dispatch(fetchDirectoriesStart());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const directories = useSelector(selectDirectories);
   const isLoading = useSelector(selectDirectoriesIsLoading);
-  console.log(directories, isLoading);
 
   return (
     <DirectoriesCotntainer fullHeight={!directories.length}>

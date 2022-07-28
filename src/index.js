@@ -8,6 +8,8 @@ import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./index.styles";
 import { PersistGate } from "redux-persist/integration/react";
 import LoadingSpinner from "./components/loading-spinner/loading-spiner.component";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe/stripe.utils";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,8 +17,10 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={<LoadingSpinner />} persistor={persistor}>
         <BrowserRouter>
-          <GlobalStyle />
-          <App />
+          <Elements stripe={stripePromise}>
+            <GlobalStyle />
+            <App />
+          </Elements>
         </BrowserRouter>
       </PersistGate>
     </Provider>

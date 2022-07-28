@@ -1,4 +1,3 @@
-import { getCollectionsAndDocuments } from "../../utils/firebase/firebase.utils";
 import { createAction } from "../../utils/reducer/reducer.utils";
 import { DIRECTORIES_ACTION_TYPES } from "./directories.types";
 
@@ -14,12 +13,12 @@ export const fetchDirectoriesSuccess = (directories) =>
 export const fetchDirectoriesFailed = (error) =>
   createAction(DIRECTORIES_ACTION_TYPES.FETCH_DIRECTORIES_FAILED, error);
 
-export const fetchDirectoriesAsync = () => async (dispatch) => {
-  dispatch(fetchDirectoriesStart());
-  try {
-    const directories = await getCollectionsAndDocuments("directories");
-    dispatch(fetchDirectoriesSuccess(directories));
-  } catch (error) {
-    dispatch(fetchDirectoriesFailed(error));
-  }
-};
+// export const fetchDirectoriesAsync = () => async (dispatch) => {
+//   dispatch(fetchDirectoriesStart());
+//   try {
+//     const directories = await getCollectionsAndDocuments("directories");
+//     dispatch(fetchDirectoriesSuccess(directories));
+//   } catch (error) {
+//     dispatch(fetchDirectoriesFailed(error));
+//   }
+// };

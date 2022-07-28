@@ -18,7 +18,7 @@ const Category = () => {
   const [products, setProducs] = useState(categories[category]);
 
   useEffect(() => {
-    setProducs(categories[category.toLowerCase()]);
+    setProducs(categories?.[category.toLowerCase()]);
   }, [categories, category]);
 
   return (
@@ -26,7 +26,7 @@ const Category = () => {
       <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
       <CategoryContainer>
         {!isLoading ? (
-          products.map((product) => (
+          products?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))
         ) : (

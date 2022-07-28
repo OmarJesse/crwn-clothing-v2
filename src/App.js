@@ -7,20 +7,20 @@ import Checkout from "./routes/checkout/checkout.component";
 import { useEffect } from "react";
 import {
   createUserDocumentFromAuth,
+  getCurrentUser,
   onAuthStateChangedListener,
 } from "./utils/firebase/firebase.utils";
-import { setCurrentUser } from "./store/user/user.action";
+import { checkUserSession } from "./store/user/user.action";
 import { useDispatch } from "react-redux";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) createUserDocumentFromAuth(user);
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
+    // if (user) createUserDocumentFromAuth(user);
+    // dispatch(setCurrentUser(user));
+
     //dispatch wont change so useEffect wont run again
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

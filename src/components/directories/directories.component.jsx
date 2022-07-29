@@ -17,7 +17,6 @@ const Directories = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(process.env);
     dispatch(fetchDirectoriesStart());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

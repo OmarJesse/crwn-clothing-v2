@@ -12,10 +12,15 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media( max-width: 800px ) {
+    padding: 10px;
+  }
 }
 
 a {
   text-decoration: none;
   color: black;
 }
+
+
 `;

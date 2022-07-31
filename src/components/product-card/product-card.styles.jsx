@@ -30,6 +30,17 @@ export const ProductCardContainer = styled.div`
     display: none;
   }
 
+  @media (max-width: 800px) {
+    ${BaseButton},
+    ${GoogleSignInButton},
+    ${InvertedSignInButton} {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
+    }
+  }
+
   &:hover {
     img {
       opacity: 0.8;
@@ -41,8 +52,24 @@ export const ProductCardContainer = styled.div`
       opacity: 0.85;
       display: flex;
     }
-  
-  `;
+  }
+
+  @media (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      img {
+        opacity: unset;
+      }
+
+      ${BaseButton},
+      ${GoogleSignInButton},
+    ${InvertedSignInButton} {
+        opacity: unset;
+        display: flex;
+      }
+    }
+  }
+`;
 export const Footer = styled.div`
   width: 100%;
   height: 5%;

@@ -9,15 +9,17 @@ import {
 } from "./cart-dropdown.styles";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
+import { useCallback } from "react";
 
 const CartDropdown = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
-  const goToCheckoutAndClose = () => {
+  const goToCheckoutAndClose = useCallback(() => {
     navigate("/checkout");
     dispatch(setIsCartOpen(false));
-  };
+    // these will never change
+  }, [navigate, dispatch]);
   return (
     <CartDropdownContainer>
       {cartItems.length ? (

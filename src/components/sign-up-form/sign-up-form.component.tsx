@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
 
@@ -7,7 +7,6 @@ import Button from "../button/button.component";
 
 import { SignUpContainer } from "./sign-up-form.styles";
 import { signUpStart } from "../../store/user/user.action";
-import { selectCurrentUser } from "../../store/user/user.selector";
 
 const defaultFormFields = {
   displayName: "",
@@ -21,7 +20,6 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { displayName, email, password, confirmPassword } = formFields;
-  const { error } = useSelector(selectCurrentUser);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -80,7 +78,6 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        {error && <p>{error.message}</p>}
         <Button type="submit">Sign up</Button>
       </form>
     </SignUpContainer>

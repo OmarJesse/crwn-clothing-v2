@@ -7,5 +7,5 @@ export const selectUserReducer = (state: RootState): UserState => state.user;
 
 export const selectCurrentUser = createSelector(
   selectUserReducer,
-  (user): UserData | null => user.currentUser
+  (user): (UserData | null) & {error?: Record<string, string>} => user.currentUser as (UserData | null) & {error?: Record<string, string>}
 );

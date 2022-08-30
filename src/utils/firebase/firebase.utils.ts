@@ -87,6 +87,7 @@ export type UserData = {
   displayName?: string | undefined;
   email?: string | undefined;
   id: string;
+  error?: string | undefined;
 };
 
 export const createUserDocumentFromAuth = async (

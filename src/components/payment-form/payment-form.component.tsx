@@ -13,7 +13,7 @@ import { StripeCardElement } from "@stripe/stripe-js";
 
 const ifValidCardElement = (
   cardElement: StripeCardElement | null
-): cardElement is StripeCardElement => card !== null;
+): cardElement is StripeCardElement => cardElement !== null;
 
 const PaymentForm = () => {
   const stripe = useStripe();
